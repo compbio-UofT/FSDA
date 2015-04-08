@@ -1,0 +1,1 @@
+grep -w -f <(cat /filer/aryan/fsda_files/feb/dbsnp/dbsnp_filtered_chr1.ref | awk '{print $2}') /dupa-filer/laci/G1/chr1/trio.phase.vcf | awk '{split($10,a,":"); printf "chr%s\t%s\t%d\t%d\t", $1, $2, substr(a[1],1,1), substr(a[1],3,1); split($12,a,":"); printf "%d\t%d\n", substr(a[1],1,1), substr(a[1],3,1); }' > groundTruth_G1
