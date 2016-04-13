@@ -9,16 +9,17 @@ source $DIR/../config_file.sh
 ################# Parameteres #################
 
 sample=$1
-prep=$2
+ref=$2
+prep=$3
 
-chr=$3
-begin=$4
-end=$5
+chr=$4
+begin=$5
+end=$6
 
-ks_th=$6
-ne_th=$7
+ks_th=$7
+ne_th=$8
 
-real_fetal_fraction=$8
+real_fetal_fraction=$9
 #admixture=$9
 #cnv=${10}
 
@@ -39,7 +40,7 @@ rm $tmp_dir/__test_frags_sizes_$$
 
 ################# Extract control distributions #################
 
-$DIR/find_controls.sh $prep $sample $chr $begin $end $ks_th > $tmp_dir/__ctrl_dists_$$
+$DIR/find_controls.sh $prep $sample $ref $chr $begin $end $ks_th > $tmp_dir/__ctrl_dists_$$
 
 neigh=`cat $tmp_dir/__ctrl_dists_$$ | wc -l`
 if (( neigh<ne_th ))

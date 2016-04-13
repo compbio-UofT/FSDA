@@ -1,16 +1,31 @@
 # FSDA
 ##
 
-## Pre-process and reference files creation
-The files in the build_ref and preprocess directories are used for creating the Mixture of Gaussians parameters and other reference files.
+## Pre-process
+Use the preprocess.sh script in the preprocess directory to create the required files for prediction. Based on the size of the sample and reference, this can take hours.
+
+Usage:
+./preprocess.sh [sample_dir] [ref_dir] [prep_dir]
+
+sample_dir is the the directory containing the .bam and the .bai files for the sample cfDNA data.
+ref_dir is the the directory containing the .bam and the .bai files for the reference cfDNA data.
+prep_dir is the the directory where the script puts the created files inside.
 
 ## Prediction
 The script predict_region.sh in the directory prediction can be used to predict the copy number of a region. The test sample and the reference sample locations and the test sample's admixture ratio are set inside the script. The script usage is as follows:
 
-./predict_region.sh [chr] [begin] [end] [ks_threshold] [neighbours_threshold] [admixture] [cov] [cnv]
+./predict_region.sh [sample_dir] [ref_dir] [prep_dir] [chr] [begin] [end] [ks_threshold] [neighbours_threshold] [fraction] 
 
-The last three arguments are for simulation purposes. The valid values fo the "cnv" argument are "nor", "dup".
+sample_dir is the the directory containing the .bam and the .bai files for the sample cfDNA data.
+ref_dir is the the directory containing the .bam and the .bai files for the reference cfDNA data.
+prep_dir is the the directory containing the files created in the pre-process.
+chr is the chromosome of the target region
+begin is the beginning position of the target region
+end is the end position of the target region
+ks_threshold is the threshold for control similarity
+neighbours_threshold is the threshold for the required minimum number of neighbours
+fetal_fraction is the fraction of the cfDNA in the sample that is fetal origin
 
 example:
-./predict_region.sh chr3 10000000 11000000 0.002 5 0.13 40 dup
+./predict_region.sh ~/sample_dir ~/ref_dir ~/prep_dir chr3 10000000 11000000 0.002 5 0.13
 

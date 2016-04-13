@@ -3,21 +3,28 @@ if [ "$tmp_dir" == "" ]; then
 	tmp_dir="/tmp/"
 fi
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-source $DIR/../config_file.sh
+#source $DIR/../config_file.sh
 
 prep=$1
 
 sample=$2
 
-chrTest=$3
-beginTest=$4
-endTest=$5
+ref=$3
 
-ks_th=$6
+chrTest=$4
+beginTest=$5
+endTest=$6
 
-samtools view $config_ref_sample/$chrTest/__plasma.part.bam $chrTest:$beginTest-$endTest | awk '{print $9}' | $DIR/../tools/create_hist.sh > $tmp_dir/__ref_dist_$$
+ks_th=$7
 
-#echo $ks_th "$chrTest $beginTest $endTest" 
+
+for file in $ref/*.bam
+do
+	samtools view $file $chrTest:$beginTest-$endTest | awk '{print $9}'  >> $tmp_dir/__ref_frags_sizes_$$ 
+done
+
+cat __ref_frags_sizes_$$ | $DIR/../tools/create_hist.sh > $tmp_dir/__ref_dist_$$
+rm __ref_frags_sizes_$$
 
 python $DIR/find_controls.py $prep/ref_bins.pickle $prep/sample_bins.pickle $tmp_dir/__ref_dist_$$ $ks_th "$chrTest $beginTest $endTest" 
 rm $tmp_dir/__ref_dist_$$
