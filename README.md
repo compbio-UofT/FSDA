@@ -10,9 +10,9 @@ Usage:
 ./preprocess.sh [sample_dir] [ref_dir] [prep_dir]
 ```
 
-sample_dir is the the directory containing the .bam and the .bai files for the sample cfDNA data.
-ref_dir is the the directory containing the .bam and the .bai files for the reference cfDNA data.
-prep_dir is the the directory where the script puts the created files inside.
+* **sample_dir** is the the directory containing the .bam and the .bai files for the sample cfDNA data.
+* **ref_dir** is the the directory containing the .bam and the .bai files for the reference cfDNA data.
+* **prep_dir** is the the directory where the script puts the created files inside.
 
 ## Prediction
 The script predict_region.sh in the directory prediction can be used to predict the copy number of a region. 
