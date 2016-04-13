@@ -1,4 +1,4 @@
-# FSDA
+# FSDA: Fragment Size Distribution Analysis for non-invasive prenatal CNV prediction
 ##
 
 ## Pre-process
