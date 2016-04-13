@@ -23,17 +23,17 @@ Usage:
 ./predict_region.sh [sample_dir] [ref_dir] [prep_dir] [chr] [begin] [end] [ks_threshold] [neighbours_threshold] [fraction] 
 ```
 
-sample_dir is the the directory containing the .bam and the .bai files for the sample cfDNA data.
-ref_dir is the the directory containing the .bam and the .bai files for the reference cfDNA data.
-prep_dir is the the directory containing the files created in the pre-process.
-chr is the chromosome of the target region
-begin is the beginning position of the target region
-end is the end position of the target region
-ks_threshold is the threshold for control similarity
-neighbours_threshold is the threshold for the required minimum number of neighbours
-fetal_fraction is the fraction of the cfDNA in the sample that is fetal origin
+* **sample_dir** is the the directory containing the .bam and the .bai files for the sample cfDNA data.
+* **ref_dir** is the the directory containing the .bam and the .bai files for the reference cfDNA data.
+* **prep_dir** is the the directory containing the files created in the pre-process.
+* **chr** is the chromosome of the target region
+* **begin** is the beginning position of the target region
+* **end** is the end position of the target region
+* **ks_threshold** is the threshold for control similarity
+* **neighbours_threshold** is the threshold for the required minimum number of neighbours
+* **fetal_fraction** is the fraction of the cfDNA in the sample that is fetal origin
 
-example:
+Example:
 
 ```
 ./predict_region.sh ~/sample_dir ~/ref_dir ~/prep_dir chr3 10000000 11000000 0.002 5 0.13
