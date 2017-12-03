@@ -2,6 +2,7 @@
 ##
 
 ## Requirements
+
 * Python 2.6 or newer
 * NumPy & SciPy
 * samtools
