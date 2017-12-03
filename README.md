@@ -2,10 +2,10 @@
 ##
 
 ## Requirements
-samtools
-bcftools
-Python 2.6 or newer
-NumPy & SciPy
+* Python 2.6 or newer
+* NumPy & SciPy
+* samtools
+* bcftools
 
 ## Pre-process
 Use the preprocess.sh script in the preprocess directory to create the required files for prediction. Based on the size of the sample and reference, this can take hours.
