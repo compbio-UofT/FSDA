@@ -47,5 +47,5 @@ Example:
 ./predict_region.sh ~/sample_dir ~/ref_dir ~/prep_dir chr3 10000000 11000000 0.002 5 0.13
 ```
 
-## Citation
+## Reference
 Arbabi, Aryan, Ladislav Rampášek, and Michael Brudno. "Cell-free DNA fragment-size distribution analysis for non-invasive prenatal CNV prediction." Bioinformatics 32.11 (2016): 1662-1669.
