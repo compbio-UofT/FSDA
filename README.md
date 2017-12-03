@@ -1,18 +1,26 @@
 # FSDA: Fragment Size Distribution Analysis for non-invasive prenatal CNV prediction
 ##
 
+## Requirements
+samtools
+bcftools
+Python 2.6 or newer
+NumPy & SciPy
+
 ## Pre-process
 Use the preprocess.sh script in the preprocess directory to create the required files for prediction. Based on the size of the sample and reference, this can take hours.
 
 Usage:
 
 ```
-./preprocess.sh [sample_dir] [ref_dir] [prep_dir]
+./preprocess.sh [sample_dir] [ref_dir] [prep_dir] [ref_genome] [dbsnp_file]
 ```
 
-* **sample_dir** is the the directory containing the .bam and the .bai files for the sample cfDNA data
-* **ref_dir** is the the directory containing the .bam and the .bai files for the reference cfDNA data
-* **prep_dir** is the the directory where the script puts the created files inside
+* **sample_dir** is the directory containing the .bam and the .bai files for the sample cfDNA data
+* **ref_dir** is the directory containing the .bam and the .bai files for the reference cfDNA data
+* **prep_dir** is the directory where the script puts the created files inside
+* **ref_genome** is path to the reference genome fasta file (e.g. hg19.fa) 
+* **dbsnp_file** is path to a list of commons snps for the reference genome, such as snp142Common.txt, obtainable from http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/snp142Common.txt.gz
 
 ## Prediction
 The script predict_region.sh in the directory prediction can be used to predict the copy number of a region. 
