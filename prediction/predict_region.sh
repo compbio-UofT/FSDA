@@ -3,7 +3,7 @@ if [ "$tmp_dir" == "" ]; then
 	tmp_dir="/tmp/"
 fi
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-source $DIR/../config_file.sh
+#source $DIR/../config_file.sh
 
 
 ################# Parameteres #################
@@ -45,7 +45,7 @@ $DIR/find_controls.sh $prep $sample $ref $chr $begin $end $ks_th > $tmp_dir/__ct
 neigh=`cat $tmp_dir/__ctrl_dists_$$ | wc -l`
 if (( neigh<ne_th ))
 then
-	echo "Not enough suitable controls for the targeted region." $neigh
+	echo "Not enough suitable controls for the targeted region. Number of identified control regions:" $neigh
 	rm $tmp_dir/__ctrl_dists_$$ $tmp_dir/__test_dist_$$
 	exit
 fi

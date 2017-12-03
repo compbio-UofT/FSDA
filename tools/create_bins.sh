@@ -11,11 +11,11 @@ sample=$1
 output=$2
 
 bin_size=1000000
-chrs="chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chr20 chr21 chr22"
-chrs="chr21 chr22"
 
-for chr in $chrs
+#for (( i=20; i<23; i++ ))
+for (( i=1; i<23; i++ ))
 do
+	chr=chr$i
 	last=`grep -w $chr $centromeres | tail -n 1 | awk  '{print $3}'`
 	for (( begin=0; begin<=last; begin+=bin_size ))
 	do
@@ -25,6 +25,7 @@ do
 		then
 			continue
 		fi
+		#>&2 echo $chr $begin $end
 		echo $chr $begin $end
 
 		for file in $sample/*.bam

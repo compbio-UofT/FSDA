@@ -22,7 +22,7 @@ do
 		allele=`echo $line | awk '{print $3}'`
 
 		samtools view $sample/$filename".bam"  $chr:$pos-$pos > $tmp_dir/__tmp_reads_$filename"_"$$ 
-		pypy read_extract.py $tmp_dir/__tmp_reads_$filename"_"$$ $pos $allele  >> $tmp_dir/__frags_$filename"_"$$
+		python read_extract.py $tmp_dir/__tmp_reads_$filename"_"$$ $pos $allele  >> $tmp_dir/__frags_$filename"_"$$
 
 	done < $tmp_dir/__snps_$filename"_"$$
 

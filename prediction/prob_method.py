@@ -61,7 +61,7 @@ def main():
     Dfetal=fetal_dist/numpy.sum(fetal_dist)
     ctrl_sum=numpy.sum(Hctrls,axis=0)
 
-	Hctrls=[ctrl_sum]
+	##Hctrls=[ctrl_sum]
 
     names=["Monosomy", "Normal", "Trisomy"]
     anscount=[0,0,0]
@@ -79,8 +79,8 @@ def main():
         anscount[max_index]+=1
 
     best_ans=numpy.argmax(anscount)
-    print "PREDICTION:\t",
-    print names[best_ans]+" "+str(anscount[best_ans])
+    print "Prediction:",names[best_ans]
+    print "Supported by "+str(anscount[best_ans])+' out of '+str(len(Hctrls))+' control regions'
 
 
 if __name__ == '__main__':

@@ -31,8 +31,11 @@ def main():
     for i in range(1,len(dist)):
         dist[i]+=dist[i-1]
     ctrls=[]
+    '''
     cdf={}
     for d in ref:
+        if sum(ref[d])<1000:
+            continue
         cdfd=[x/sum(ref[d]) for x in ref[d]]
         for i in range(1,len(cdfd)):
             cdfd[i]+=cdfd[i-1]
@@ -74,6 +77,7 @@ def main():
             sys.stdout.write(str(bin_NN['count'])+"\t")
         print ""
     exit()
+    '''
 
 
 
@@ -82,6 +86,8 @@ def main():
 
 
     for d in ref:
+        if sum(ref[d])<1000:
+            continue
         ref_d=[x/sum(ref[d]) for x in ref[d]]
         for i in range(1,len(ref_d)):
             ref_d[i]+=ref_d[i-1]
@@ -90,7 +96,7 @@ def main():
 
     tot=0
     reg_split=args.reg.strip().split(" ")
-    for i in range(len(ref)):
+    for i in range(len(ctrls)):
 #        if (tot==20):
 #            break
         if (ctrls[i][1]>args.ks_th):
